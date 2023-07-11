@@ -1,7 +1,7 @@
 import Swiper from "swiper";
 
 // создаем слайдер на странице в body
-const body = document.querySelector(".body");
+const body = document.querySelector("body");
 const newBodyChild = document.createElement("div");
 newBodyChild.classList = "hero__container-slider";
 
@@ -73,6 +73,7 @@ const slider = document.querySelector(".hero__slider");
 openSliderButtons.forEach((btn) => {
 	btn.addEventListener("click", () => {
 		sliderContainer.classList.add("hero__container-slider-visible");
+		disableScroll();
 	});
 });
 
@@ -97,9 +98,23 @@ slider.addEventListener("click", (e) => {
 
 sliderContainer.addEventListener("click", () => {
 	sliderContainer.classList.remove("hero__container-slider-visible");
+	enableScroll();
 });
 
 const closeSliderButton = document.getElementById("closeSliderButton");
 closeSliderButton.addEventListener("click", () => {
 	sliderContainer.classList.remove("hero__container-slider-visible");
+	enableScroll();
 });
+
+function disableScroll() {
+	prevWidth = body.offsetWidth;
+	body.style.overflowY = "hidden";
+	newWidth = body.offsetWidth;
+	body.style.paddingRight = `${newWidth - prevWidth}px`;
+}
+
+function enableScroll() {
+	body.style.overflowY = "unset";
+	body.style.paddingRight = "unset";
+}

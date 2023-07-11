@@ -1,5 +1,4 @@
-import Swiper, { Navigation } from "swiper";
-Swiper.use([Navigation]);
+import Swiper from "swiper";
 
 const openSliderButtons = document.querySelectorAll(".open-slider-elem");
 const sliderContainer = document.querySelector(".hero__container-slider");

@@ -108,9 +108,9 @@ closeSliderButton.addEventListener("click", () => {
 });
 
 function disableScroll() {
-	prevWidth = body.offsetWidth;
+	let prevWidth = body.offsetWidth;
 	body.style.overflowY = "hidden";
-	newWidth = body.offsetWidth;
+	let newWidth = body.offsetWidth;
 	body.style.paddingRight = `${newWidth - prevWidth}px`;
 }
 
